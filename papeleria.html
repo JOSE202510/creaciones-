@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEAS</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 18px 0;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 18px;
+            position: relative;
+        }
+        .logo-header {
+            width: 130px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-left: 90px;  
+            margin-right: 18px;
+            background: #fff;
+            display: block;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .header-title {
+            margin: 0;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+        .header-desc {
+            margin: 2px 0 8px 0;
+            font-size: 1rem;
+        }
+        .header-link {
+            display: inline-block;
+            background: #fff;
+            color: #003366;
+            padding: 6px 16px;
+            border-radius: 4px;
+            margin-top: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .header-link:hover {
+            background: #e6f0fa;
+        }
+        nav { background: #005599; padding: 10px 0; text-align: center; }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
+        .container { max-width: 900px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 8px; }
+        h1, h2 { color: #003366; }
+        footer { background: #003366; color: #fff; text-align: center; padding: 15px 0; margin-top: 30px; }
+        form label { display: block; margin-top: 15px; }
+        form input, form textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+        form button { margin-top: 15px; background: #005599; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        form button:hover { background: #003366; }
+        .servicios-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .servicio-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 20px 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .servicio-item img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .servicio-link {
+            width: 100%;
+            text-align: center;
+        }
+        /* Estilos para el menú lateral */
+        #sideMenu {
+            position: fixed;
+            top: 0;
+            left: -220px;
+            width: 220px;
+            height: 100%;
+            background: #003366;
+            color: #fff;
+            transition: left 0.3s;
+            z-index: 1000;
+            padding-top: 60px;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+        }
+        #sideMenu a {
+            display: block;
+            color: #fff;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid #005599;
+            transition: background 0.2s;
+        }
+        #sideMenu a:hover {
+            background: #005599;
+        }
+        #sideMenu .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+        }
+        /* Estilos para el botón del menú */
+        #openMenuBtn {
+            position: fixed;
+            top: 28px;
+            left: 28px;
+            background: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        }
+        /* Estilos para el menú desplegable "Publicar" */
+        .menu-publicar {
+            position: relative;
+        }
+        #submenu-publicar {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background: #003366;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            min-width: 160px;
+            z-index: 2000;
+        }
+        .submenu-link {
+            display: block;
+            padding: 12px 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .submenu-link:hover {
+            background: #005599;
+        }
+        @media (max-width: 600px) {
+            #sideMenu { width: 80vw; }
+            #openMenuBtn { left: 12px; top: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado y menú lateral IDEAS - Copia desde aquí -->
+    <header>
+        <img src="logo-ideas.png" alt="Logo IDEAS" class="logo-header" id="logo-ideas">
+        <div class="header-content" style="align-items: flex-start;">
+            <h1 class="header-title">IDEAS</h1>
+            <p class="header-desc">¡Donde nacen y crecen tus ideas!</p>
+            <p style="font-weight:bold; color:#ffb300; margin:0 0 8px 0;">Acciones que transforman el mundo</p>
+            <a href="#contacto" class="header-link">Contáctanos</a>
+        </div>
+    </header>
+
+    <button id="openMenuBtn">&#9776;</button>
+    <nav id="sideMenu">
+        <span class="close-btn" id="closeMenuBtn">&times;</span>
+        <a href="portal de servicios.html">Inicio</a>
+        <a href="asesoria-juridica.html">Asesoría Jurídica</a>
+        <a href="medicina-tradicional.html">Medicina Tradicional</a>
+        <a href="papeleria.html">Papelería</a>
+        <a href="bienes-servicios.html">Bienes y Servicios</a>
+        <a href="#noticias-por-region">Noticias</a>
+        <a href="#clasificados">Clasificados</a>
+        <a href="#publicidad">Publicidad</a>
+        <a href="#comentarios">Comentarios</a>
+        <!-- Menú desplegable para Publicar -->
+        <div class="menu-publicar" style="position:relative;">
+            <a href="#" id="publicarMenuBtn" style="background:#005599;font-weight:bold;">Publicar ▼</a>
+            <div id="submenu-publicar" style="display:none;position:absolute;left:0;top:100%;background:#003366;border-radius:0 0 8px 8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);min-width:160px;z-index:2000;">
+                <a href="#form-clasificado" class="submenu-link" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Clasificado</a>
+                <a href="#form-noticia" class="submenu-link" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Noticia</a>
+                <a href="#publicidad" class="submenu-link" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Publicidad</a>
+            </div>
+        </div>
+        <a href="#ayuda">Ayuda</a>
+    </nav>
+    <script>
+    // Menú lateral
+    const openBtn = document.getElementById('openMenuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeMenuBtn');
+
+    openBtn.onclick = function() {
+        sideMenu.style.left = sideMenu.style.left === '0px' ? '-220px' : '0px';
+    };
+
+    closeBtn.onclick = function() {
+        sideMenu.style.left = '-220px';
+    };
+
+    // Evita que el menú se cierre al hacer clic dentro de él
+    sideMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    window.addEventListener('click', function(e) {
+        if (sideMenu.style.left === '0px' && !sideMenu.contains(e.target) && e.target !== openBtn) {
+            sideMenu.style.left = '-220px';
+        }
+    });
+
+    // Menú desplegable para "Publicar"
+    const publicarMenuBtn = document.getElementById('publicarMenuBtn');
+    const submenuPublicar = document.getElementById('submenu-publicar');
+    let submenuTimeout = null;
+
+    publicarMenuBtn.addEventListener('mouseenter', () => {
+        clearTimeout(submenuTimeout);
+        submenuPublicar.style.display = 'block';
+    });
+    publicarMenuBtn.addEventListener('mouseleave', () => {
+        submenuTimeout = setTimeout(() => { submenuPublicar.style.display = 'none'; }, 200);
+    });
+    submenuPublicar.addEventListener('mouseenter', () => {
+        clearTimeout(submenuTimeout);
+        submenuPublicar.style.display = 'block';
+    });
+    submenuPublicar.addEventListener('mouseleave', () => {
+        submenuPublicar.style.display = 'none';
+    });
+
+    // Mostrar también al hacer clic en móvil
+    publicarMenuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        submenuPublicar.style.display = submenuPublicar.style.display === 'block' ? 'none' : 'block';
+    });
+    </script>
+    <!-- Encabezado y menú lateral IDEAS - Copia hasta aquí -->
+    <div class="container">
+        <a href="portal de servicios.html" class="volver">&larr; Volver al inicio</a>
+        <h2>Servicios de Papelería</h2>
+        <ul>
+            <li>Impresión y copias</li>
+            <li>Escaneo de documentos</li>
+            <li>Elaboración de formatos legales</li>
+            <li>Encuadernados y anillados</li>
+            <li>Venta de material de oficina</li>
+        </ul>
+        <h2>Solicita tu servicio</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="servicio">Servicio requerido:</label>
+            <input type="text" id="servicio" name="servicio" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <p style="margin-top:20px;">¿Tienes dudas? Contáctanos y te ayudamos.</p>
+    </div>
+
+    <!-- Redes sociales, política y footer IDEAS - Copia desde aquí -->
+        <div id="redes-sociales" style="text-align:center; margin: 40px 0 20px 0;">
+    <h2 style="font-size:1.1em; color:#003366; margin-bottom:12px;">Síguenos en redes sociales</h2>
+    <a href="https://web.facebook.com/carlosarturo.chindoyalban" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="facebook.png" alt="Facebook" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+    <a href="https://www.instagram.com/pensamiento3609/" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="instagram.png" alt="Instagram" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+    <a href="https://x.com/" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="x.png" alt="X (antes Twitter)" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+    <a href="https://www.tiktok.com/@josealban2025?lang=es-419" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="tiktok.png" alt="TikTok" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+</div>
+
+    <section id="legal" style="margin: 40px 0 20px 0; text-align: center;">
+        <h2 style="font-size:1.1em; color:#003366; margin-bottom:10px;">Política de Privacidad y Términos de Uso</h2>
+        <p style="font-size:1em; color:#333;">
+            Al utilizar este portal aceptas nuestras 
+            <a href="#" id="mostrar-politica" style="color:#1976d2;text-decoration:underline;">Políticas de Privacidad</a> 
+            y 
+            <a href="#" id="mostrar-terminos" style="color:#1976d2;text-decoration:underline;">Términos y Condiciones</a>.
+        </p>
+    </section>
+
+    <!-- Modal para mostrar políticas y términos -->
+    <div id="modal-legal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);z-index:9999;align-items:center;justify-content:center;">
+        <div id="modal-contenido-legal" style="background:#fff;padding:28px 22px;border-radius:10px;max-width:500px;width:90vw;max-height:80vh;overflow:auto;position:relative;">
+            <button id="cerrar-modal-legal" style="position:absolute;top:10px;right:14px;background:#c0392b;color:#fff;border:none;border-radius:50%;width:28px;height:28px;font-size:1.2em;cursor:pointer;">&times;</button>
+            <div id="contenido-legal"></div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 IDEAS - www.ideas.com <br>
+        <span style="color:#ffb300;font-weight:bold;">Acciones que transforman el mundo</span>
+    </footer>
+
+    <script>
+    const textoPolitica = `
+        <h3>Política de Privacidad</h3>
+        <p>Tu privacidad es importante para nosotros. Aquí explicamos cómo protegemos y usamos tus datos...</p>
+    `;
+    const textoTerminos = `
+        <h3>Términos y Condiciones</h3>
+        <p>Al usar este portal aceptas los siguientes términos y condiciones de uso...</p>
+    `;
+
+    document.getElementById('mostrar-politica').onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('contenido-legal').innerHTML = textoPolitica;
+        document.getElementById('modal-legal').style.display = 'flex';
+    };
+    document.getElementById('mostrar-terminos').onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('contenido-legal').innerHTML = textoTerminos;
+        document.getElementById('modal-legal').style.display = 'flex';
+    };
+    document.getElementById('cerrar-modal-legal').onclick = function() {
+        document.getElementById('modal-legal').style.display = 'none';
+    };
+    document.getElementById('modal-legal').onclick = function(e) {
+        if (e.target === this) this.style.display = 'none';
+    };
+    </script>
+</body>
+</html>

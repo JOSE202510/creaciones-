@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEAS</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 18px 0;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 18px;
+            position: relative;
+        }
+        .logo-header {
+            width: 130px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-left: 90px;  
+            margin-right: 18px;
+            background: #fff;
+            display: block;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .header-title {
+            margin: 0;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+        .header-desc {
+            margin: 2px 0 8px 0;
+            font-size: 1rem;
+        }
+        .header-link {
+            display: inline-block;
+            background: #fff;
+            color: #003366;
+            padding: 6px 16px;
+            border-radius: 4px;
+            margin-top: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .header-link:hover {
+            background: #e6f0fa;
+        }
+        nav { background: #005599; padding: 10px 0; text-align: center; }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
+        .container { max-width: 900px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 8px; }
+        h1, h2 { color: #003366; }
+        footer { background: #003366; color: #fff; text-align: center; padding: 15px 0; margin-top: 30px; }
+        form label { display: block; margin-top: 15px; }
+        form input, form textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+        form button { margin-top: 15px; background: #005599; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        form button:hover { background: #003366; }
+        .servicios-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .servicio-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 20px 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .servicio-item img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .servicio-link {
+            width: 100%;
+            text-align: center;
+        }
+#blog {
+    margin-top: 40px;
+}
+#form-noticia {
+    background: #e6f0fa;
+    padding: 18px 16px 10px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 30px;
+}
+#form-noticia input[type="text"],
+#form-noticia textarea {
+    border: 1px solid #b3c6e0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    background: #fff;
+}
+#form-noticia input[type="file"] {
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px;
+}
+#form-noticia button {
+    background: #003366;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#form-noticia button:hover {
+    background: #005599;
+}
+#noticias-lista {
+    margin-bottom: 18px;
+}
+#noticias-lista article {
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    padding: 18px 16px 12px 16px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+}
+#noticias-lista h3 {
+    margin-top: 0;
+    color: #003366;
+    font-size: 1.15rem;
+}
+#noticias-lista p {
+    margin: 10px 0 8px 0;
+    color: #222;
+}
+#noticias-lista small {
+    color: #666;
+    font-size: 0.92rem;
+}
+#noticias-lista img {
+    max-width: 100%;
+    max-height: 180px;
+    display: block;
+    margin: 10px auto 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+#blog a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #005599;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+#blog a:hover {
+    color: #003366;
+}
+.clasificado-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+.clasificado-item img {
+    max-width: 100%;
+    max-height: 160px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.clasificado-item button.eliminar-clasificado {
+    margin-top: 10px;
+    background: #c0392b;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.clasificado-item button.eliminar-clasificado:hover {
+    background: #a93226;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo-ideas.png" alt="Logo IDEAS" class="logo-header" id="logo-ideas">
+        <div class="header-content" style="align-items: flex-start;">
+            <h1 class="header-title">IDEAS</h1>
+            <p class="header-desc">¡Donde nacen y crecen tus ideas!</p>
+            <p style="font-weight:bold; color:#ffb300; margin:0 0 8px 0;">Acciones que transforman el mundo</p>
+            <a href="#contacto" class="header-link">Contáctanos</a>
+        </div>
+    </header>
+
+    <style>
+    #sideMenu {
+        position: fixed;
+        top: 0;
+        left: -220px;
+        width: 220px;
+        height: 100%;
+        background: #003366;
+        color: #fff;
+        transition: left 0.3s;
+        z-index: 1000;
+        padding-top: 60px;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+    }
+    #sideMenu a {
+        display: block;
+        color: #fff;
+        padding: 14px 28px;
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 1px solid #005599;
+        transition: background 0.2s;
+    }
+    #sideMenu a:hover {
+        background: #005599;
+    }
+    #sideMenu .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #fff;
+    }
+    #openMenuBtn {
+        position: fixed;
+        top: 28px;
+        left: 28px;
+        background: #003366;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1100;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    @media (max-width: 600px) {
+        #sideMenu { width: 80vw; }
+        #openMenuBtn { left: 12px; top: 12px; }
+    }
+    header {
+        background: #003366;
+        color: #fff;
+        padding: 18px 0;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 18px;
+        position: relative;
+    }
+    .logo-header {
+        width: 130px;
+        height: 100px;
+        border-radius: 10px;
+        object-fit: cover;
+        margin-left: 90px;  
+        margin-right: 18px;
+        background: #fff;
+        display: block;
+    }
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .header-title {
+        margin: 0;
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    .header-desc {
+        margin: 2px 0 8px 0;
+        font-size: 1rem;
+    }
+    .header-link {
+        display: inline-block;
+        background: #fff;
+        color: #003366;
+        padding: 6px 16px;
+        border-radius: 4px;
+        margin-top: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.95rem;
+    }
+    .header-link:hover {
+        background: #e6f0fa;
+    }
+    </style>
+
+    <button id="openMenuBtn">&#9776;</button>
+    <nav id="sideMenu">
+        <span class="close-btn" id="closeMenuBtn">&times;</span>
+        <a href="portal de servicios.html">Inicio</a>
+        <a href="asesoria-juridica.html">Asesoría Jurídica</a>
+        <a href="medicina-tradicional.html">Medicina Tradicional</a>
+        <a href="papeleria.html">Papelería</a>
+        <a href="bienes-servicios.html">Bienes y Servicios</a>
+        <a href="#noticias-por-region">Noticias</a>
+        <a href="#clasificados">Clasificados</a>
+        <a href="#publicidad">Publicidad</a>
+        <a href="#comentarios">Comentarios</a>
+        <!-- Menú desplegable para Publicar -->
+        <div class="menu-publicar" style="position:relative;">
+            <a href="#" id="publicarMenuBtn" style="background:#005599;font-weight:bold;">Publicar ▼</a>
+            <div id="submenu-publicar" style="display:none;position:absolute;left:0;top:100%;background:#003366;border-radius:0 0 8px 8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);min-width:160px;z-index:2000;">
+                <a href="#form-clasificado" class="submenu-link" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Clasificado</a>
+                <a href="#form-noticia" class="submenu-link" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Noticia</a>
+                <a href="#publicidad" class="submenu-link" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Publicidad</a>
+            </div>
+        </div>
+        <a href="#ayuda">Ayuda</a>
+    </nav>
+    <script>
+    const openBtn = document.getElementById('openMenuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeMenuBtn');
+
+    openBtn.onclick = function() {
+        sideMenu.style.left = sideMenu.style.left === '0px' ? '-220px' : '0px';
+    };
+
+    closeBtn.onclick = function() {
+        sideMenu.style.left = '-220px';
+    };
+
+    // Evita que el menú se cierre al hacer clic dentro de él
+    sideMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    window.addEventListener('click', function(e) {
+        if (sideMenu.style.left === '0px' && !sideMenu.contains(e.target) && e.target !== openBtn) {
+            sideMenu.style.left = '-220px';
+        }
+    });
+
+    // Menú desplegable para "Publicar"
+    const publicarMenuBtn = document.getElementById('publicarMenuBtn');
+    const submenuPublicar = document.getElementById('submenu-publicar');
+    let submenuTimeout = null;
+
+    publicarMenuBtn.addEventListener('mouseenter', () => {
+        clearTimeout(submenuTimeout);
+        submenuPublicar.style.display = 'block';
+    });
+    publicarMenuBtn.addEventListener('mouseleave', () => {
+        submenuTimeout = setTimeout(() => { submenuPublicar.style.display = 'none'; }, 200);
+    });
+    submenuPublicar.addEventListener('mouseenter', () => {
+        clearTimeout(submenuTimeout);
+        submenuPublicar.style.display = 'block';
+    });
+    submenuPublicar.addEventListener('mouseleave', () => {
+        submenuPublicar.style.display = 'none';
+    });
+
+    // Mostrar también al hacer clic en móvil
+    publicarMenuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        submenuPublicar.style.display = submenuPublicar.style.display === 'block' ? 'none' : 'block';
+    });
+    </script>
+
+    <div class="container">
+        <section id="inicio">
+            <h2>Bienvenido a nuestro portal de servicios</h2>
+            <p>Ofrecemos asesoría jurídica, medicina tradicional, papelería y más. Selecciona el área de tu interés:</p>
+            <div class="servicios-grid">
+                <a href="asesoria_juridica.html" class="servicio-item" style="text-decoration:none; color:inherit;">
+                    <img src="asesoria-juridica.jpg" alt="Asesoría Jurídica">
+                    <span class="asesoria-juridica">Asesoría Jurídica</span>
+                </a>
+                <a href="medicina_tradicional.html" class="servicio-item" style="text-decoration:none; color:inherit;">
+                    <img src="medicina_tradicional.jpeg" alt="Medicina Tradicional">
+                    <span class="medicina-tradicional">Medicina Tradicional</span>
+                </a>
+                <a href="bienes-servicios.html" class="servicio-item" style="text-decoration:none; color:inherit;">
+                    <img src="Bienes-y-servicios.jpg" alt="Bienes y Servicios">
+                    <span class="bienes-servicios">Bienes y Servicios</span>
+                </a>
+                <a href="papeleria.html" class="servicio-item" style="text-decoration:none; color:inherit;">
+                    <img src="papeleria.jpg" alt="Papelería">
+                    <span class="papeleria">Papelería</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="clasificados">
+            <h2>Clasificados</h2>
+            <div id="lista-clasificados"></div>
+        </section>
+
+        <section id="noticias-por-region" style="margin:30px 0;">
+            <h2 style="color:#003366;">Noticias</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:20px;">
+            </div>
+            <div id="noticias-lista"></div>
+        </section>
+        
+         <section id="publicidad" style="margin:30px 0;">
+            <h2 style="color:#003366;">Espacio para tu Publicidad</h2>
+            <div id="lista-publicidad" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;"></div>
+        </section>
+
+        <section id="comentarios">
+            <h2>Comentarios</h2>
+            <form>
+                <label for="nombre-comentario">Nombre:</label>
+                <input type="text" id="nombre-comentario" name="nombre-comentario" required>
+                <label for="comentario">Comentario:</label>
+                <textarea id="comentario" name="comentario" rows="3" required></textarea>
+                <button type="submit">Publicar comentario</button>
+            </form>
+            <div id="lista-comentarios">
+            </div>
+        </section>
+        <script>
+        document.querySelector('#comentarios form').onsubmit = function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre-comentario').value;
+            const comentario = document.getElementById('comentario').value;
+            let comentarios = JSON.parse(localStorage.getItem('comentariosIDEAS') || '[]');
+            const nuevoComentario = {
+                nombre,
+                comentario,
+                timestamp: Date.now()
+            };
+            comentarios.push(nuevoComentario);
+            localStorage.setItem('comentariosIDEAS', JSON.stringify(comentarios));
+            cargarComentarios();
+            this.reset();
+        };
+
+        function cargarComentarios() {
+            const lista = document.getElementById('lista-comentarios');
+            lista.innerHTML = '';
+            let comentarios = JSON.parse(localStorage.getItem('comentariosIDEAS') || '[]');
+            comentarios.forEach((c) => {
+                const div = document.createElement('div');
+                div.innerHTML = `<strong>${c.nombre}:</strong> ${c.comentario}
+                    <button class="eliminar-comentario" data-timestamp="${c.timestamp}" style="margin-left:10px;background:#c0392b;color:#fff;border:none;padding:2px 10px;border-radius:4px;cursor:pointer;font-size:0.9em;">Eliminar</button>`;
+                lista.appendChild(div);
+            });
+
+            document.querySelectorAll('.eliminar-comentario').forEach(btn => {
+                btn.onclick = function() {
+                    eliminarComentario(this.getAttribute('data-timestamp'));
+                };
+            });
+        }
+
+        function eliminarComentario(timestamp) {
+            let comentarios = JSON.parse(localStorage.getItem('comentariosIDEAS') || '[]');
+            comentarios = comentarios.filter(c => c.timestamp != timestamp);
+            localStorage.setItem('comentariosIDEAS', JSON.stringify(comentarios));
+            cargarComentarios();
+        }
+
+        cargarComentarios();
+        </script>
+
+
+        <div id="redes-sociales" style="text-align:center; margin: 40px 0 20px 0;">
+    <h2 style="font-size:1.1em; color:#003366; margin-bottom:12px;">Síguenos en redes sociales</h2>
+    <a href="https://web.facebook.com/carlosarturo.chindoyalban" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="facebook.png" alt="Facebook" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+    <a href="https://www.instagram.com/pensamiento3609/" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="instagram.png" alt="Instagram" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+    <a href="https://x.com/" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="x.png" alt="X (antes Twitter)" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+    <a href="https://www.tiktok.com/@josealban2025?lang=es-419" target="_blank" style="margin:0 10px;display:inline-block;">
+        <img src="tiktok.png" alt="TikTok" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+</div>
+
+        <section id="legal" style="margin: 40px 0 20px 0; text-align: center;">
+            <h2 style="font-size:1.1em; color:#003366; margin-bottom:10px;">Política de Privacidad y Términos de Uso</h2>
+            <p style="font-size:1em; color:#333;">
+                Al utilizar este portal aceptas nuestras 
+                <a href="#" id="mostrar-politica" style="color:#1976d2;text-decoration:underline;">Políticas de Privacidad</a> 
+                y 
+                <a href="#" id="mostrar-terminos" style="color:#1976d2;text-decoration:underline;">Términos y Condiciones</a>.
+            </p>
+        </section>
+
+        <!-- Modal para mostrar políticas y términos -->
+        <div id="modal-legal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);z-index:9999;align-items:center;justify-content:center;">
+            <div id="modal-contenido-legal" style="background:#fff;padding:28px 22px;border-radius:10px;max-width:500px;width:90vw;max-height:80vh;overflow:auto;position:relative;">
+                <button id="cerrar-modal-legal" style="position:absolute;top:10px;right:14px;background:#c0392b;color:#fff;border:none;border-radius:50%;width:28px;height:28px;font-size:1.2em;cursor:pointer;">&times;</button>
+                <div id="contenido-legal"></div>
+            </div>
+        </div>
+
+        <script>
+        // Contenido de ejemplo, reemplaza por tus textos reales
+        const textoPolitica = `
+            <h3>Política de Privacidad</h3>
+            <p>Tu privacidad es importante para nosotros. Aquí explicamos cómo protegemos y usamos tus datos...</p>
+        `;
+        const textoTerminos = `
+            <h3>Términos y Condiciones</h3>
+            <p>Al usar este portal aceptas los siguientes términos y condiciones de uso...</p>
+        `;
+
+        document.getElementById('mostrar-politica').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('contenido-legal').innerHTML = textoPolitica;
+            document.getElementById('modal-legal').style.display = 'flex';
+        };
+        document.getElementById('mostrar-terminos').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('contenido-legal').innerHTML = textoTerminos;
+            document.getElementById('modal-legal').style.display = 'flex';
+        };
+        document.getElementById('cerrar-modal-legal').onclick = function() {
+            document.getElementById('modal-legal').style.display = 'none';
+        };
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('modal-legal').onclick = function(e) {
+            if (e.target === this) this.style.display = 'none';
+        };
+        </script>
+    </div>
+    <footer>
+        &copy; 2024 IDEAS - www.ideas.com <br>
+        <span style="color:#ffb300;font-weight:bold;">Acciones que transforman el mundo</span>
+    </footer>
+
+    <!-- Mueve el formulario de noticia al final del body, fuera del flujo principal, para que solo se acceda desde el menú -->
+<form id="form-noticia" style="display:none; margin:30px auto; max-width:500px; background:#e6f0fa; padding:18px 16px 10px 16px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); position:fixed; left:0; right:0; top:80px; z-index:3000;">
+    <input type="password" id="clave-editor" placeholder="Clave de editor" required style="width:100%;margin-bottom:8px;">
+    <input type="text" id="titulo-noticia" placeholder="Título de la noticia" required style="width:100%;margin-bottom:8px;">
+    <input type="text" id="lugar-noticia" placeholder="Lugar o región de la noticia (ej: Bogotá, Putumayo...)" required style="width:100%;margin-bottom:8px;">
+    <textarea id="contenido-noticia" placeholder="Contenido de la noticia" required style="width:100%;margin-bottom:8px;"></textarea>
+    <input type="file" id="imagen-noticia" accept="image/*" style="margin-bottom:8px;">
+    <button type="submit">Publicar noticia</button>
+    <button type="button" id="cerrar-form-noticia" style="margin-left:10px;background:#c0392b;">Cancelar</button>
+</form>
+
+<!-- Mueve el formulario de clasificados al final del body, oculto por defecto, igual que el de noticias -->
+<form id="form-clasificado" style="display:none; margin:30px auto; max-width:500px; background:#e6f0fa; padding:18px 16px 10px 16px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); position:fixed; left:0; right:0; top:100px; z-index:3000;">
+    <input type="password" id="clave-editor-clasificado" placeholder="Clave de editor" required style="width:100%;margin-bottom:8px;">
+    <input type="text" id="titulo-clasificado" placeholder="Título del anuncio" required style="width:100%;margin-bottom:8px;">
+    <textarea id="contenido-clasificado" placeholder="Descripción del anuncio" required style="width:100%;margin-bottom:8px;"></textarea>
+    <input type="file" id="imagen-clasificado" accept="image/*" style="margin-bottom:8px;">
+    <button type="submit">Publicar anuncio</button>
+    <button type="button" id="cerrar-form-clasificado" style="margin-left:10px;background:#c0392b;">Cancelar</button>
+</form>
+
+<!-- Si quieres un formulario para solicitar publicidad, agrégalo así: -->
+<form id="form-publicidad" style="display:none; margin:30px auto; max-width:500px; background:#e6f0fa; padding:18px 16px 10px 16px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); position:fixed; left:0; right:0; top:120px; z-index:3000;">
+    <input type="text" id="nombre-publicidad" placeholder="Tu nombre o empresa" required style="width:100%;margin-bottom:8px;">
+    <input type="email" id="email-publicidad" placeholder="Correo de contacto" required style="width:100%;margin-bottom:8px;">
+    <textarea id="mensaje-publicidad" placeholder="Describe tu publicidad o consulta" required style="width:100%;margin-bottom:8px;"></textarea>
+    <button type="submit">Solicitar publicidad</button>
+    <button type="button" id="cerrar-form-publicidad" style="margin-left:10px;background:#c0392b;">Cancelar</button>
+</form>
+
+<script>
+// Mostrar el formulario de noticia desde el menú "Publicar"
+document.querySelectorAll('.submenu-link[href="#form-noticia"]').forEach(link => {
+    link.onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('form-noticia').style.display = 'block';
+    };
+});
+
+// Mostrar el formulario de clasificado desde el menú "Publicar"
+document.querySelectorAll('.submenu-link[href="#form-clasificado"]').forEach(link => {
+    link.onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('form-clasificado').style.display = 'block';
+    };
+});
+
+// Mostrar el formulario de publicidad desde el menú "Publicar"
+document.querySelectorAll('.submenu-link[href="#publicidad"]').forEach(link => {
+    link.onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('form-publicidad').style.display = 'block';
+    };
+});
+
+// Botón para cerrar el formulario de noticia
+document.getElementById('cerrar-form-noticia').onclick = function() {
+    document.getElementById('form-noticia').style.display = 'none';
+};
+// Botón para cerrar el formulario de clasificado
+document.getElementById('cerrar-form-clasificado').onclick = function() {
+    document.getElementById('form-clasificado').style.display = 'none';
+};
+// Botón para cerrar el formulario de publicidad
+document.getElementById('cerrar-form-publicidad').onclick = function() {
+    document.getElementById('form-publicidad').style.display = 'none';
+};
+</script>
+
+<script>
+function cargarPublicidad() {
+    const lista = document.getElementById('lista-publicidad');
+    lista.innerHTML = '';
+
+    // Publicidad de ejemplo (siempre al inicio)
+    const ejemplo = document.createElement('div');
+    ejemplo.style = "background:#f8f8f8;border:1px solid #b3c6e0;padding:18px 24px;border-radius:10px;min-width:220px;text-align:center;margin-bottom:16px;";
+    ejemplo.innerHTML = `
+        <img src="papepubli.jpeg" alt="Publicidad ejemplo" style="width:100px;height:60px;object-fit:cover;border-radius:6px;margin-bottom:8px;">
+        <div><strong>Proximamente en sibundoy abre papeleria</strong></div>
+        <div>Asesoría Jurídica Integral</div>
+        <a href="asesoria_juridica.html" style="color:#005599;text-decoration:underline;">Ver servicio</a>
+    `;
+    lista.appendChild(ejemplo);
+
+    // Cargar publicaciones de publicidad desde localStorage
+    let publicaciones = JSON.parse(localStorage.getItem('publicidadIDEAS') || '[]');
+    publicaciones.forEach(publi => {
+        const div = document.createElement('div');
+        div.style = "background:#f8f8f8;border:1px solid #b3c6e0;padding:18px 24px;border-radius:10px;min-width:220px;text-align:center;margin-bottom:16px;";
+        div.innerHTML = `
+            ${publi.imagen ? `<img src="${publi.imagen}" alt="Publicidad" style="width:100px;height:60px;object-fit:cover;border-radius:6px;margin-bottom:8px;">` : ''}
+            <div><strong>${publi.titulo || ''}</strong></div>
+            <div>${publi.descripcion || ''}</div>
+        `;
+        lista.appendChild(div);
+    });
+
+    // Al final, agrega siempre el letrero fijo con un mensaje más técnico y profesional
+    const letrero = document.createElement('div');
+    letrero.style = `
+        background: linear-gradient(90deg, #e3eafc 0%, #f5f7fa 100%);
+        border: 1px solid #1976d2;
+        padding: 8px 10px;
+        border-radius: 8px;
+        min-width:180px;
+        max-width:340px;
+        text-align:center;
+        margin-bottom:8px;
+        font-size:0.97em;
+        font-weight:500;
+        color: #1a237e;
+        box-shadow:0 1px 4px rgba(25, 118, 210, 0.07);
+        margin-left:auto;
+        margin-right:auto;
+    `;
+
+    letrero.innerHTML = `
+        <span style="font-size:1em;color:#1976d2;display:block;margin-bottom:2px;">
+            ¿Quieres posicionar tu empresa, producto o servicio en nuestro portal?
+        </span>
+        <span style="color:#333;font-weight:normal;font-size:0.95em;">
+            Solicita un espacio publicitario destacado y llega a una audiencia segmentada.<br>
+            <a href="https://wa.me/573135878363?text=Hola,%20quiero%20publicitar%20mi%20empresa%20en%20el%20portal%20IDEAS" 
+               target="_blank" 
+               style="color:#25d366;text-decoration:underline;font-weight:bold;font-size:0.97em;">
+               Solicitar espacio profesional
+            </a>
+        </span>
+    `;
+
+    lista.appendChild(letrero);
+}
+
+// Llama a cargarPublicidad() al cargar la página
+cargarPublicidad();
+    </script>
+</body>
+</html>
